@@ -1,0 +1,26 @@
+version : '3'
+
+services:
+    ha:
+        image: haproxy
+        ports:
+            - "8000:8080"
+        volumes:
+            - ./haproxy:/usr/local/etc/haproxy
+    echo1:
+        image: echo
+        environment:
+            - APPID=10001
+    echo2:
+        image: echo
+        environment:
+            - APPID=10002
+    echo3:
+        image: echo
+        environment:
+            - APPID=10003
+    echo4:
+        image: echo
+        environment:
+            - APPID=10004
+        
